@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:drawerbehavior/drawer_scaffold.dart';
 import 'package:flutter/material.dart';
 
-final menuScreenKey = GlobalKey(debugLabel: 'MenuScreen');
+Global menuScreenKey;
 
 enum Direction {
   left,
@@ -12,6 +12,7 @@ enum Direction {
 
 class SideDrawer<T> extends StatefulWidget {
   SideDrawer({
+    GlobalKey key,
     this.menu,
     this.headerView,
     this.footerView,
@@ -43,8 +44,10 @@ class SideDrawer<T> extends StatefulWidget {
             new Interval(0.0, 1.0, curve: curve ?? Curves.easeOut),
         this.slideInCurve =
             new Interval(0.0, 1.0, curve: curve ?? Curves.easeOut),
-        super(key: menuScreenKey);
+        super(key: key);
 
+  final GlobalKey key;
+  
   /// Scaling Percentage base on width and height
   final double percentage;
 
@@ -145,6 +148,7 @@ class _SideDrawerState extends State<SideDrawer> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    menuScreenKey = widget.key;
   }
 
   @override
