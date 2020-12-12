@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:drawerbehavior/drawer_scaffold.dart';
 import 'package:flutter/material.dart';
 
-Global menuScreenKey;
+GlobalKey menuScreenKey;
 
 enum Direction {
   left,
