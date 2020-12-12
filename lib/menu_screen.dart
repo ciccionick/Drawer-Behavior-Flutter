@@ -34,7 +34,9 @@ class SideDrawer<T> extends StatefulWidget {
     this.itemBuilder,
     this.elevation = 16,
     this.cornerRadius,
-  })  : this.percentage = percentage ?? 0.8,
+  })  : 
+        this.key = key,
+        this.percentage = percentage ?? 0.8,
         this.degree = degree == null ? null : max(min(45, degree), 15),
         this.scaleDownCurve =
             new Interval(0.0, 0.3, curve: curve ?? Curves.easeOut),
